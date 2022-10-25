@@ -1,0 +1,23 @@
+{
+  "name": "curso-b-sico-de-graphql_platzi_course",
+  "version": "0.0.1",
+  "description": "Curso Básico de GraphQL (curso de platzi)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GerardoDev25/Curso-B-sico-de-GraphQL_Platzi_course.git"
+  },
+  "keywords": [],
+  "author": "Gerardo Miranda <gerardodev25@gmail.com> (https://github.com/GerardoDev25)",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^14.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/GerardoDev25/Curso-B-sico-de-GraphQL_Platzi_course/issues"
+  },
+  "homepage": "https://github.com/GerardoDev25/Curso-B-sico-de-GraphQL_Platzi_course#readme"
+}
