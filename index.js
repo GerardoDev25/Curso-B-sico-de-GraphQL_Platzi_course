@@ -1,9 +1,13 @@
+const express = require('express');
+const gqlMiddleware = require('express-graphql');
 const { graphql, buildSchema } = require('graphql');
+
+const app = express();
+const port = process.env.port || 3000;
 
 const schema = buildSchema(`
   type Query {
     hello: String
-    saludo: String
   }
 `);
 
@@ -12,11 +16,17 @@ const resolvers = {
   hello: () => {
     return 'hello world';
   },
-  saludo: () => {
-    return 'hello everyone';
-  },
 };
 
-graphql(schema, '{ hello, saludo }', resolvers).then((data) => {
-  console.log(data);
+app.use(
+  '/api',
+  gqlMiddleware({
+    schema,
+    rootValue: resolvers,
+    graphiql: true,
+  })
+);
+
+app.listen(port, (e) => {
+  console.log('server up: ', port);
 });

@@ -4,7 +4,7 @@
   "description": "Curso Básico de GraphQL (curso de platzi)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon -e js,graphql index"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,12 @@
   "author": "Gerardo Miranda <gerardodev25@gmail.com> (https://github.com/GerardoDev25)",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.8.0",
     "graphql": "^14.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   },
   "bugs": {
     "url": "https://github.com/GerardoDev25/Curso-B-sico-de-GraphQL_Platzi_course/issues"
