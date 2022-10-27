@@ -1,8 +1,10 @@
 const express = require('express');
-const gqlMiddleware = require('express-graphql');
-const { makeExecutableSchema } = require('graphql-tools');
 const { readFileSync } = require('fs');
 const { join } = require('path');
+const gqlMiddleware = require('express-graphql');
+const { makeExecutableSchema } = require('graphql-tools');
+require('dotenv').config();
+
 const resolvers = require('./lib/resolvers.js');
 
 const app = express();
@@ -22,5 +24,7 @@ app.use(
 );
 
 app.listen(port, (e) => {
+  console.log('*'.repeat(70));
   console.log('server up: ', port);
+  console.log('*'.repeat(70));
 });
