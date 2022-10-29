@@ -4,6 +4,7 @@
   "description": "Curso Básico de GraphQL (curso de platzi)",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=production node index",
     "dev": "nodemon -e js,graphql index"
   },
   "repository": {
@@ -20,6 +21,7 @@
     "graphql": "^14.2.1",
     "graphql-tools": "^4.0.4",
     "mongo": "^0.1.0",
+    "cors": "^2.8.5",
     "mongodb": "^4.11.0"
   },
   "devDependencies": {

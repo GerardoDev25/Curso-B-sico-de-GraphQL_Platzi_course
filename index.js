@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { readFileSync } = require('fs');
 const { join } = require('path');
 const gqlMiddleware = require('express-graphql');
@@ -14,12 +15,15 @@ const typeDefs = readFileSync(join(__dirname, 'lib', 'schema.graphql'), 'utf-8')
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
+const isDev = process.env.NODE_ENV !== 'production'
+
+app.use(cors());
 app.use(
   '/api',
   gqlMiddleware({
     schema,
     rootValue: resolvers,
-    graphiql: true,
+    graphiql: isDev,
   })
 );
 
