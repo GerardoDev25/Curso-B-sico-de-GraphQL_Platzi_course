@@ -28,19 +28,36 @@ input CourseEditInput {
   topic: String
 }
 
-type Student {
+interface Person {
   _id: ID!
   name: String!
   email: String!
 }
 
-input StudentInput {
+type Monitor implements Person {
+  _id: ID!
   name: String!
   email: String!
+  phone: String
 }
-input StudentEditInput {
+type Student implements Person {
+  _id: ID!
+  name: String!
+  email: String!
+  avatar: String
+}
+
+input PersonInput {
+  name: String!
+  email: String!
+  phone: String
+  avatar: String
+}
+input PersonEditInput {
   name: String
   email: String
+  phone: String
+  avatar: String
 }
 
 type Query {
@@ -49,10 +66,10 @@ type Query {
   "Devuelve un curso"
   getCourse(id: ID!): Course
 
-  "Devuelve todos los estudiantes"
-  getStudents: [Student]
+  "Devuelve todos las personas"
+  getPeople: [Person]
   "Devuelve un estudiantes"
-  getStudent(id: ID!): Student
+  getPerson(id: ID!): Person
 }
 
 type Mutation {
@@ -61,10 +78,10 @@ type Mutation {
   "esdita un curso"
   editCourse(_id: ID!, input: CourseEditInput): Course
 
-  "Crear un estudiante"
-  createStudent(input: StudentInput!): Student
-  "editar un estudiante"
-  editStudent(_id: ID!, input: StudentEditInput): Student
+  "Crear una Persona"
+  createPerson(input: PersonInput!): Person
+  "editar una Persona"
+  editPerson(_id: ID!, input: PersonEditInput): Person
 
   "agrega persona"
   addPeople(courseID: ID!, personID: ID!): Course
